@@ -52,7 +52,7 @@ $(document).ready(function () {
     function createGame() {
 
         gamePage =
-            "<p class='timer'>Time Remaining: 30</p> <h2 class='questionDisp'>" +
+            "<h2 class='questionDisp'>" +
             questionArray[questionsAnswered] +
             "</h2>";
         gamePageAnswers =
@@ -81,20 +81,21 @@ $(document).ready(function () {
                 clearInterval(countDown);
                 timeoutLoss();
             }
-            $(".timer").html("Time Remaining: " + timer);
+            $("#countdown").html("Time Remaining: " + timer);
         }
     };
     //creates screen if time runs out before user answers question.
     function timeoutLoss() {
 
         answersNone++;
+        $("countdown").html(" ")
 
         //had to look how to do this up, but this will display the right answer depending on what question was asked, same as the way the questions are displayed.
-        gamePage = "<p class='timer'>Time Remaining:" + timer + "</p>" + "<p class='warning'>Gotta be quicker than that!  The correct answer was: " +
+        gamePage ="<p class='warning'>Gotta be quicker than that!  The correct answer was: " +
             correctAnswers[questionsAnswered] +
             "</p>";
 
-        $("#mainContent").html(gamePage);
+        $("#warning").html(gamePage);
 
         console.log(answersNone);
         //this is the wait time inbetween the changing screens!!!!*
@@ -105,6 +106,9 @@ $(document).ready(function () {
     function timerInbetween() {
         if (questionsAnswered < 3) {
             questionsAnswered++;
+            $("#warning").html(" ");
+            $("#dispQuestion").html(" ");
+            $("#dispAnswers").html(" ");
             createGame();
             timer = 31;
             createTimer();
@@ -116,15 +120,15 @@ $(document).ready(function () {
     //creates screen if answer selected is right.
     function correct() {
         answersRight++;
-        gamePage = "<p class='timer'>Time Remaining:" + timer + "</p>" + "<p class='warning'>Correct!!!  The answer was: " + correctAnswers[questionsAnswered] + "</p>";
-        $("#mainContent").html(gamePage);
+        gamePage = "<p class='warning'>Correct!!!  The answer was: " + correctAnswers[questionsAnswered] + "</p>";
+        $("#warning").html(gamePage);
 
     };
     //creates screen if answer selected is wrong
     function wrong() {
         answersWrong++;
-        gamePage = "<p class='timer'>Time Remaining:" + timer + "</p>" + "<p class='warning'>Bruh </3  The correct answer was: " + correctAnswers[questionsAnswered] + "</p>";
-        $("#mainContent").html(gamePage);
+        gamePage ="<p class='warning'>Bruh </3  The correct answer was: " + correctAnswers[questionsAnswered] + "</p>";
+        $("#warning").html(gamePage);
 
     };
     //shows two different gameover screens depending on how many answers you got right or wrong, if answers right is over 5 then show winning screen, if its less than 5 then show losing screen.
