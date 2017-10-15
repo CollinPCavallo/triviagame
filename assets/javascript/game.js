@@ -24,8 +24,10 @@ $(document).ready(function () {
     };
     //Calls the function to load the start button on the DOM.
     loadGame();
-    $("#answerButton").on("click", function () {
+    $(".answerButton").on("click", function() {
+        
         answerSelected = $(this);
+        
         if (answerSelected === correctAnswers[questionsAnswered]) {
             clearInterval(countDown);
             correct();
@@ -36,7 +38,7 @@ $(document).ready(function () {
     });
 
     //creates on click function for the start button to load the gamePage and the timer.
-    $("#start-button").on("click", function () {
+    $("#start-button").on("click", function() {
 
         $("#start-button").hide();
 
@@ -56,13 +58,13 @@ $(document).ready(function () {
             questionArray[questionsAnswered] +
             "</h2>";
         gamePageAnswers =
-            "<h3 id='answerButton'>" +
+            "<h3 class='answerButton'>" +
             answerArray[questionsAnswered][0] +
-            "</h3><h3 id='answerButton'>" +
+            "</h3><h3 class='answerButton'>" +
             answerArray[questionsAnswered][1] +
-            "</h3><h3 id='answerButton'>" +
+            "</h3><h3 class='answerButton'>" +
             answerArray[questionsAnswered][2] +
-            "</h3><h3 id='answerButton'>" +
+            "</h3><h3 class='answerButton'>" +
             answerArray[questionsAnswered][3] +
             "</h3>";
 
@@ -127,7 +129,7 @@ $(document).ready(function () {
     //creates screen if answer selected is wrong
     function wrong() {
         answersWrong++;
-        gamePage ="<p class='warning'>Bruh </3  The correct answer was: " + correctAnswers[questionsAnswered] + "</p>";
+        gamePage ="<p class='warning'>Bruh...  The correct answer was: " + correctAnswers[questionsAnswered] + "</p>";
         $("#warning").html(gamePage);
 
     };
