@@ -24,18 +24,7 @@ $(document).ready(function () {
     };
     //Calls the function to load the start button on the DOM.
     loadGame();
-    $(".answerButton").on("click", function() {
-        
-        answerSelected = $(this);
-        
-        if (answerSelected === correctAnswers[questionsAnswered]) {
-            clearInterval(countDown);
-            correct();
-        } else {
-            clearInterval();
-            wrong();
-        }
-    });
+
 
     //creates on click function for the start button to load the gamePage and the timer.
     $("#start-button").on("click", function() {
@@ -149,6 +138,18 @@ $(document).ready(function () {
 
 
     }
+        $(".answerButton").on("click", function() {
+        
+        answerSelected = $(this);
+        
+        if (answerSelected === correctAnswers[questionsAnswered]) {
+            clearInterval(countDown);
+            correct();
+        } else {
+            clearInterval();
+            wrong();
+        }
+    });
 
 
 
