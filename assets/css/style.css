@@ -1,3 +1,33 @@
-h1{
+h1, img, div, h3, button, body{
     color: blue;
+    text-align: center;
+    opacity: 1;
+}
+body{
+	background: url(../images/background.png)fixed;
+}
+img{
+	border-radius: 35%;
+	height: 400px;
+	width: 400px;
+}
+
+h3:hover{
+	transform: scale(1.1);
+	background-color: purple;
+	color: white;
+	transition-duration: 0.8s;
+	cursor:pointer;
+
+}
+section{
+	width: 70%;
+	border: 2px solid black;
+	margin: 0 auto;
+	background-color: white;
+	}
+h3{
+	width: 30%;
+	margin: 0 auto;
+	border-radius: 25%;
 }
