@@ -36,6 +36,8 @@ $(document).ready(function () {
     $("#start-button").on("click", function() {
 
         $("#start-button").hide();
+        $("#instruct").hide();
+        $("#header").hide();
 
         createGame();
 
@@ -69,6 +71,7 @@ $(document).ready(function () {
         $("#dispQuestion").html(gamePage);
         $("#dispAnswers").html(gamePageAnswers)
         $("#imageDisplay").html(" ")
+        $("#countdown").show();
         setAnswerClick();
     };
     function setAnswerClick() {
@@ -144,7 +147,7 @@ $(document).ready(function () {
         $("#imageDisplay").html(imgDisplay);
             $("#dispQuestion").html(" ");
             $("#dispAnswers").html(" ");
-            $("#countdown").html(" ");
+            $("#countdown").hide();
         setTimeout(timerInbetween, 5000);
     };
     //creates screen if answer selected is wrong
